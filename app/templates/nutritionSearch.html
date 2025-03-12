@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Search by Nutrition</title>
+    <style>
+        .recipe-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            width: 250px;
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+        }
+        .recipe-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recommended Recipes by Nutrition</h1>
+
+    <form action="/recommend_by_nutrition" method="GET">
+        <label>Min Calories: <input type="number" name="min_calories" value="100"></label>
+        <label>Max Calories: <input type="number" name="max_calories" value="500"></label><br>
+
+        <label>Min Protein: <input type="number" name="min_protein" value="5"></label>
+        <label>Max Protein: <input type="number" name="max_protein" value="50"></label><br>
+
+        <label>Min Fat: <input type="number" name="min_fat" value="1"></label>
+        <label>Max Fat: <input type="number" name="max_fat" value="30"></label><br>
+
+        <label>Min Carbs: <input type="number" name="min_carbs" value="5"></label>
+        <label>Max Carbs: <input type="number" name="max_carbs" value="100"></label><br>
+
+        <button type="submit">Search</button>
+    </form>
+
+    <div id="recipes-container">
+        {% if message %}
+            <p>{{ message }}</p>
+        {% elif recipes %}
+            {% for recipe in recipes %}
+                <a href="{{ recipe.spoonacular_url }}" target="_blank" class="recipe-card">
+                    <h2>{{ recipe.name }}</h2>
+                    <img src="{{ recipe.image_url }}" alt="{{ recipe.name }}">
+                </a>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>

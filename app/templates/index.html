@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Recommendation</title>
+</head>
+<body>
+    <h1>Recipe Recommendation Form</h1>
+
+    <!-- Recipe Recommendation by Ingredients -->
+    <form action="{{ url_for('fetch_and_store_recipes') }}" method="POST">
+        <label for="ingredients">Ingredients (comma separated):</label><br>
+        <input type="text" id="ingredients" name="ingredients" required><br><br>
+
+        <label for="diet">Dietary Preferences:</label><br>
+        <select name="diet" id="diet">
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="glutenFree">Gluten Free</option>
+            <option value="none">None</option>
+        </select><br><br>
+
+        <label for="max_calories">Max Calories:</label><br>
+        <input type="number" id="max_calories" name="max_calories" value="500"><br><br>
+
+        <button type="submit">Get Recipe Recommendations by Ingredients</button>
+    </form>
+
+    <hr>
+
+    <!-- Recipe Recommendation by Nutrition -->
+    <h2>Find Recipes by Nutrition</h2>
+    <form action="{{ url_for('recommend_by_nutrition') }}" method="GET">
+        <label>Min Calories:</label>
+        <input type="number" name="min_calories" value="100"><br><br>
+
+        <label>Max Calories:</label>
+        <input type="number" name="max_calories" value="500"><br><br>
+
+        <label>Min Protein:</label>
+        <input type="number" name="min_protein" value="5"><br><br>
+
+        <label>Max Protein:</label>
+        <input type="number" name="max_protein" value="50"><br><br>
+
+        <label>Min Fat:</label>
+        <input type="number" name="min_fat" value="1"><br><br>
+
+        <label>Max Fat:</label>
+        <input type="number" name="max_fat" value="30"><br><br>
+
+        <label>Min Carbs:</label>
+        <input type="number" name="min_carbs" value="5"><br><br>
+
+        <label>Max Carbs:</label>
+        <input type="number" name="max_carbs" value="100"><br><br>
+
+        <button type="submit">Get Recipe Recommendations by Nutrition</button>
+    </form>
+
+    
+
+</body>
+</html>

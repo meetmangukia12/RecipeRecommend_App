@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Search</title>
+    <style>
+        .recipe-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            width: 250px;
+            display: inline-block;
+            text-decoration: none; /* Removes underline */
+            color: black; /* Ensures default text color */
+        }
+        .recipe-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recommended Recipes</h1>
+    
+    <form action="/recommend_by_ingredients" method="GET">
+        <label for="ingredients">Enter ingredients:</label>
+        <input type="text" name="ingredients" id="ingredients" placeholder="e.g., apple, flour, sugar">
+        <button type="submit">Search</button>
+    </form>
+
+    <div id="recipes-container">
+        {% if message %}
+            <p>{{ message }}</p>
+        {% elif recipes %}
+            {% for recipe in recipes %}
+                {% if recipe.spoonacular_url %}  <!-- Ensure URL exists -->
+                    <a href="{{ recipe.spoonacular_url }}" target="_blank" class="recipe-card">
+                        <h2>{{ recipe.name }}</h2>
+                        <img src="{{ recipe.image_url }}" alt="{{ recipe.name }}">
+                    </a>
+                {% else %}
+                    <div class="recipe-card">
+                        <h2>{{ recipe.name }}</h2>
+                        <img src="{{ recipe.image_url }}" alt="{{ recipe.name }}">
+                        <p>No source available</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>
