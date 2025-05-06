@@ -1,0 +1,130 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;  
+    width: 100vw;   
+    font-family: Arial, sans-serif; 
+    display: flex;
+    flex-direction: column;  /* Ensure the layout is column-based */
+    overflow: hidden;  /* Disable horizontal and vertical scrolling */
+  }
+  
+  /* Ensure root div takes full height and width */
+  #root {
+    height: 100%;  /* Root div should take up the entire viewport height */
+    width: 100%;   /* Root div should take up the entire viewport width */
+  }
+
+/* Wrapper for the entire results page */
+.ingredient-results-wrapper {
+    width: 100%;  
+    height: 100vh;  
+    margin-top: 70px;
+    background-color: #091821;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;  /* Allows scrolling if content overflows */
+    
+  }
+
+  .recipe-results::-webkit-scrollbar {
+    display: none;  /* Hides the scrollbar */
+  }
+  
+  h1 {
+    font-size: 36px;;
+    color: #007bff;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Allerta Stencil';
+  }
+  
+  /* Recipe results grid layout */
+  .recipe-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    width: 90%;  
+    padding: 20px;
+    margin-top: 30px; 
+    
+    overflow-y: auto; 
+  }
+  
+  /* Recipe card link wrapper */
+  .recipe-card-link {
+    text-decoration: none;  /* Remove default underline from anchor */
+  }
+  
+  /* Recipe card design */
+  .recipe-card {
+    background-color: black;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden;  /* Ensures the image is contained within the card */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth hover effect */
+    cursor: pointer;
+    height: 350px; /* Fixed height for all cards */
+    width: 250px;  /* Fixed width for all cards */
+  }
+  
+  .recipe-card:hover {
+    transform: scale(1.1);  
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);  /* Larger shadow on hover */
+  }
+  
+  /* Recipe image styling */
+  .recipe-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;  /* Ensure the image fills the space */
+    border-bottom: 1px solid #ddd;  /* Separator between image and content */
+    border-radius: 15px 15px 0 0;
+  }
+  
+  /* Card content (text and button) */
+  .card-content {
+    padding: 15px;
+    text-align: center;
+    height: 100%;  /* Ensure it fills the remaining height of the card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* Space between elements */
+  }
+  
+  .recipe-name {
+    font-size: 1.2rem;  /* Flexible font size */
+    font-weight: bold;
+    font-family: 'Allerta Stencil';
+    color: white;
+    margin: 10px 0;
+  }
+  
+  .recipe-calories {
+    font-size: 0.9rem;  
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .view-recipe-btn {
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .view-recipe-btn:hover {
+    background-color: #0056b3;  /* Darker blue on hover */
+  }
+  
+  /* No results message styling */
+  .recipe-results p {
+    text-align: center;
+    font-size: 1rem;  
+    color: #555;
+  }
+  

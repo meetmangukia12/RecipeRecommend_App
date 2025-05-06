@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Search</title>
+    <title>Recipe Search by Ingredients</title>
     <style>
         .recipe-card {
             border: 1px solid #ddd;
@@ -14,8 +14,8 @@
             text-align: center;
             width: 250px;
             display: inline-block;
-            text-decoration: none; /* Removes underline */
-            color: black; /* Ensures default text color */
+            text-decoration: none;
+            color: black;
         }
         .recipe-card img {
             width: 100%;
@@ -26,7 +26,7 @@
 </head>
 <body>
     <h1>Recommended Recipes</h1>
-    
+
     <form action="/recommend_by_ingredients" method="GET">
         <label for="ingredients">Enter ingredients:</label>
         <input type="text" name="ingredients" id="ingredients" placeholder="e.g., apple, flour, sugar">
@@ -37,20 +37,19 @@
         {% if message %}
             <p>{{ message }}</p>
         {% elif recipes %}
-            {% for recipe in recipes %}
-                {% if recipe.spoonacular_url %}  <!-- Ensure URL exists -->
-                    <a href="{{ recipe.spoonacular_url }}" target="_blank" class="recipe-card">
-                        <h2>{{ recipe.name }}</h2>
-                        <img src="{{ recipe.image_url }}" alt="{{ recipe.name }}">
-                    </a>
-                {% else %}
+            <div class="recipes-container">
+                {% for recipe in recipes %}
                     <div class="recipe-card">
                         <h2>{{ recipe.name }}</h2>
                         <img src="{{ recipe.image_url }}" alt="{{ recipe.name }}">
-                        <p>No source available</p>
+                        {% if recipe.spoonacular_url %}
+                            <a href="{{ recipe.spoonacular_url }}" target="_blank">View Recipe</a>
+                        {% else %}
+                            <p>No source available</p>
+                        {% endif %}
                     </div>
-                {% endif %}
-            {% endfor %}
+                {% endfor %}
+            </div>
         {% endif %}
     </div>
 </body>

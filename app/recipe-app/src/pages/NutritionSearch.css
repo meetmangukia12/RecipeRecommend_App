@@ -1,0 +1,126 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+#root {
+  height: 100%;  /* Root div should take up the entire viewport height */
+  width: 100%;   /* Root div should take up the entire viewport width */
+}
+
+.container {
+  background-image: url('images/bg-nutrition.jpg'); 
+  background-size: cover; /* Cover the entire div */
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  
+}
+
+.container img {
+  width: 100%;
+  height: 100%;
+}
+
+.main-banner {
+  height: 100%;
+  width: 100%;
+}
+
+.main-banner h1 {
+  color: #db3949;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0px;
+  margin-top: 70px;
+  padding-top: 20px;
+  margin-right: 0px;
+  margin-left: 600px;
+}
+
+.main-banner p {
+  color: black;
+  font-size: 20px;
+  margin-left: 600px;
+  margin-top: 10px;
+  
+}
+
+
+/* Nutrition Inputs Section */
+.nutrition-inputs {
+  background-color: #f4f4f4; /* Light gray background color */
+  
+  text-align: center;
+  border-radius: 15px;  /* Rounded corners */
+  box-shadow: 0px 0px 30px rgba(0.1, 0.1, 0.2, 0.2); /* Add subtle shadow */
+  max-width: 800px; /* Limit the width of the section */
+  margin-top: 50px;
+  margin-left: 650px;
+  
+}
+
+.input-container1 {
+  display: flex;
+  padding: 20px 20px;
+  flex-wrap: wrap;  /* Ensure the elements wrap into a new row when necessary */
+  justify-content: center;
+  gap: 10px;  /* Add some gap between the fields */
+  margin: 0 auto;
+  width: 80%;
+}
+
+.input-container1 h3 {
+  font-size: 2rem;
+  color: #333;
+  margin: 20px;
+  padding: 10px;
+  
+}
+
+.input-field {
+  
+  padding: 20px;
+  margin: 10px;
+  background-color: #f4f4f4;
+  text-align: center;
+  border-radius: 15px;  /* Rounded corners */
+  box-shadow: 0px 0px 30px rgba(0.1, 0.1, 0.2, 0.2);
+  color: black;
+  font-size: 16px;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #ff6347;
+}
+
+
+.cta-btn2 {
+  background-color: #ff6347;
+  color: white;
+  font-size: 1rem;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 20px;
+  
+  width: 100%;
+  max-width: 200px;
+}
+
+.cta-btn:hover {
+  background-color: #e55339;
+}

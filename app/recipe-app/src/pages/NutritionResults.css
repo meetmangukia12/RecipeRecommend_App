@@ -1,0 +1,121 @@
+/* Apply styles to the root and body */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;  
+  width: 100%;   
+  font-family: Arial, sans-serif; 
+  display: flex;
+  flex-direction: column;  /* Ensure the layout is column-based */
+  overflow: hidden;  /* Disable horizontal and vertical scrolling */
+}
+
+/* Ensure root div takes full height and width */
+#root {
+  height: 100%;  /* Root div should take up the entire viewport height */
+  width: 100%;   /* Root div should take up the entire viewport width */
+}
+
+/* Body styling for main content */
+.nutrition-results-wrapper {
+  width: 100%;  /* Full width of the screen */
+  height: 100vh;  
+  
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  overflow: hidden;  /* Remove any visible scrollbar */
+}
+
+.title {
+  margin-top: 100px;
+  color: #ff6347;
+}
+
+/* Recipe results grid layout */
+.recipe-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 20px;
+  width: 100%; 
+  padding: 20px;
+  margin-top: 30px;  /* Add some space above the grid */
+  overflow-y: auto;  /* Make content scrollable */
+}
+
+/* Hide scrollbar */
+.recipe-results::-webkit-scrollbar {
+  display: none;  
+}
+
+/* Recipe card design */
+.recipe-card {
+  background-color: black;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  overflow: hidden;  
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth hover effect */
+  cursor: pointer;
+  height: 350px; /* Fixed height for all cards */
+  width: 250px;  /* Fixed width for all cards */
+}
+
+.recipe-card:hover {
+  transform: scale(1.1);  /* Lift effect on hover */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);  /* Larger shadow on hover */
+}
+
+/* Recipe image styling */
+.recipe-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;  /* Ensure the image fills the space */
+  border-bottom: 1px solid #ddd;  /* Separator between image and content */
+  border-radius: 15px 15px 0 0;
+}
+
+/* Card content (text and button) */
+.card-content {
+  padding: 15px;
+  text-align: center;
+  height: 100%;  /* Ensure it fills the remaining height of the card */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  /* Space between elements */
+}
+
+.recipe-name {
+  font-size: 1.2rem;  /* Flexible font size */
+  font-weight: bold;
+  color: white;
+  margin: 10px 0;
+}
+
+.recipe-calories {
+  font-size: 0.9rem;  /* Smaller, flexible font */
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.view-recipe-btn {
+  text-decoration: none;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.view-recipe-btn:hover {
+  background-color: #0056b3;  /* Darker blue on hover */
+}
+
+/* No results message styling */
+.recipe-results p {
+  text-align: center;
+  font-size: 1rem;  /* Flexible font size */
+  color: #555;
+}

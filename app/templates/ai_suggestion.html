@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Recipe Suggestions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .recipe-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            white-space: pre-line; /* Preserves line breaks in the AI-generated text */
+        }
+        .form-container {
+            margin-bottom: 30px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: #d32f2f;
+            background-color: #ffebee;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .nav {
+            margin-bottom: 20px;
+        }
+        .nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/recommend_by_ingredients">Search by Ingredients</a>
+        <a href="/recommend_by_nutrition">Search by Nutrition</a>
+        <a href="/ai_recipe_suggestion">AI Recipe Suggestions</a>
+    </div>
+
+    <h1>AI Recipe Suggestions</h1>
+    
+    <div class="form-container">
+        <form action="/ai_recipe_suggestion" method="POST">
+            <label for="ingredients">Enter ingredients (comma separated):</label>
+            <input type="text" id="ingredients" name="ingredients" placeholder="e.g., chicken, spinach, garlic, olive oil" required>
+            <button type="submit">Generate Recipe</button>
+        </form>
+    </div>
+
+    {% if error %}
+        <div class="error">
+            <p>{{ error }}</p>
+        </div>
+    {% endif %}
+
+    {% if recipe_text %}
+        <div class="recipe-card">
+            {{ recipe_text }}
+        </div>
+    {% endif %}
+</body>
+</html>
